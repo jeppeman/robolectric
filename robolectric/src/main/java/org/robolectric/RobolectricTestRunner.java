@@ -82,12 +82,8 @@ public class RobolectricTestRunner extends SandboxTestRunner {
   protected static Injector defaultInjector() {
     return new Injector()
         .register(Properties.class, System.getProperties())
-        .registerDefault(ConfigMerger.class, DefaultConfigMerger.class)
-        .registerDefault(SdkPicker.class, DefaultSdkPicker.class)
         .registerDefault(ApkLoader.class, ApkLoader.class)
         .registerDefault(SandboxFactory.class, SandboxFactory.class)
-        .registerDefault(DependencyResolver.class, LegacyDependencyResolver.class)
-        .registerDefault(SdkProvider.class, DefaultSdkProvider.class)
         .registerDefault(Ctx.class, Ctx.class);
   }
 

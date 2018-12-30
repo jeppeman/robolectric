@@ -1,11 +1,13 @@
 package org.robolectric;
 
+import com.google.auto.service.AutoService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
+import javax.annotation.Priority;
 import javax.inject.Inject;
 import org.robolectric.internal.dependency.DependencyJar;
 import org.robolectric.internal.dependency.DependencyResolver;
@@ -15,6 +17,8 @@ import org.robolectric.res.Fs;
 import org.robolectric.util.Logger;
 import org.robolectric.util.ReflectionHelpers;
 
+@AutoService(DependencyResolver.class)
+@Priority(Integer.MIN_VALUE)
 public class LegacyDependencyResolver implements DependencyResolver {
 
   private final DependencyResolver delegate;
